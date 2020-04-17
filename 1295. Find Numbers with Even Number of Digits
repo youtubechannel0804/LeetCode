@@ -1,0 +1,27 @@
+class Solution {
+	public int findNumbers(int[] nums) {
+
+		int countEvenDigit = 0;
+		for (int value : nums) {
+			int digitCount = countDigit(value);
+			if (isEven(digitCount)) {
+				countEvenDigit++;
+			}
+		}
+		return countEvenDigit;
+	}
+
+	public boolean isEven(int n) {
+		return n % 2 == 0 ? true : false;
+	}
+
+	public int countDigit(int n) {
+		int count = 1;
+		while (n > 9) {
+			n = n / 10;
+			count++;
+		}
+
+		return count;
+	}
+}
