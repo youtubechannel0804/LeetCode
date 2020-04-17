@@ -1,0 +1,27 @@
+public class DecompressRunLengthEncodedList1313 {
+
+	public static void main(String[] args) {
+		int[] nums = { 65, 44, 72, 15 };
+		decompressRLElist(nums);
+	}
+
+	public static int[] decompressRLElist(int[] nums) {
+		int size = 0;
+		for (int i = 0; i < nums.length - 1; i = i + 2) {
+			size = size + nums[i];
+		}
+
+		int[] result = new int[size];
+
+		int nextIndex = 0;
+		for (int i = 0; i < nums.length - 1; i = i + 2) {
+			int j = nextIndex;
+			for (; j < nextIndex + nums[i]; j++) {
+				result[j] = nums[i + 1];
+			}
+			nextIndex = j;
+		}
+		return result;
+	}
+
+}
